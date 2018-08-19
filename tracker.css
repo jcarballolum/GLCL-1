@@ -1,0 +1,37 @@
+h1 {
+  font-size: 70px;
+  text-align: center;
+  margin: 120 0 130 0;
+}
+
+.iphone-wrapper {
+  width: 400px;
+  border: 1px solid black;
+  height: 900px;
+  background: #4B4F54;
+  color: #D1D6D6;
+}
+
+.top-row-container {
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.middle-row-container {
+  height: 400px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+p {
+  width: 33.3%;
+  font-size: 15px;
+  text-align: center;
+}

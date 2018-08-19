@@ -1,173 +1,99 @@
-body {background-color: #282828;
-}
+//@import 'variables';
 
 .button{
-background-color:blue;
-height:40px;
-width:80px;
-display: inline-block;
-margin: 0 10px;
-//inactive, row 1
-&.inactive{
-  background-color: white;
-  height: 75px;
-  width: 436px;
-  border-radius: 40px;
-  font-family: helvetica;
-  font-size: 20px;
-  color: #C0C0C0;
-  text-align: center;
-  padding-top: 2px;
-}
-//normal solid, row 2
-&.normal{
-  background-color: goldenrod;
-  height: 75px;
-  width: 436px;
-  border-radius: 40px;
-  font-family: helvetica;
-  font-size: 20px;
-  color: unset;
-  text-align: center;
-  padding-top: 2px;
-}
-//hover solid, row 2
-&.hover{
-  background-color: gold;
-  height: 75px;
-  width: 436px;
-  border-radius: 40px;
-  font-family: helvetica;
-  font-size: 20px;
-  color: unset;
-  text-align: center;
-  padding-top: 2px;
-}
-//hover solid, row 2
-&.click{
-  background-color: darkgoldenrod;
-  height: 75px;
-  width: 436px;
-  border-radius: 40px;
-  font-family: helvetica;
-  font-size: 20px;
-  color: unset;
-  text-align: center;
-  padding-top: 2px;
-}
-//check solid, row 3
-&.check normal{
-  background-color: goldenrod;
-  height: 75px;
-  width: 436px;
-  border-radius: 40px;
-  font-family: helvetica;
-  font-size: 20px;
-  color: unset;
-  text-align: center;
-  padding-top: 2px;
-}
-//check solid, row 3
-&.hover check{
-  background-color: gold;
-  height: 75px;
-  width: 436px;
-  border-radius: 40px;
-  font-family: helvetica;
-  font-size: 20px;
-  color: unset;
-  text-align: center;
-  padding-top: 2px;
-}
-//check solid row 3
-&.check click{
-  background-color: darkgoldenrod;
-  height: 75px;
-  width: 436px;
-  border-radius: 40px;
-  font-family: helvetica;
-  font-size: 20px;
-  color: unset;
-  text-align: center;
-  padding-top: 2px;
-}
-
-//round
-&.round{
-background-color: unset;
-height: 37.5px;
-width: 37.5px;
-border-radius: 50%;
-border: 4px solid gold;
-
-&.disabled{
-border: 4px solid darkgoldenrod;
-p {
-color: darkgoldenrod;
-}
-}
-
-&.enabled{
-background-color: darkgoldenrod;
-border: 4px solid darkgoldenrod;
-p {
-color: unset;
-}
-}
-
-p{
-vertical-align: middle;
-margin: auto;
-text-align: center;
-color: gold;
-font-size: 31px;
-}
-}
-}
-//normal border, row 4
-.n-border{
-  background-color: unset;
-  height: 75px;
-  width: 436px;
-  border-radius: 40px;
-  border: 4px solid goldenrod;
-  font-family: helvetica;
-  font-size: 20px;
-  color: goldenrod;
-  text-align: center;
-  padding-top: 2px;
+  background-color: blue;
+  height:40px;
+  width:80px;
   display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 15px;
-}
+  margin: 10px 10px;
+  p{color: #505253}
 
-//hover border, row 4
-.h-border{
-  background-color: #8E8051;
-  height: 75px;
-  width: 436px;
-  border-radius: 40px;
+    &.round{
+    background-color: unset;
+    height: 37.5px;
+    width:37.5px;
+    border-radius:50%;
   border: 4px solid gold;
-  font-family: helvetica;
-  font-size: 20px;
-  color: gold;
-  text-align: center;
-  padding-top: 2px;
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 15px;
+    
+   
+
+    &.disabled{
+      border: 4px solid darkgoldenrod;
+      p {
+        color: darkgoldenrod;
+      }
+    }
+    &.filled{
+      background-color: gold;
+      p{
+      color: #4C4F53;
+      } 
+    }
+    p{
+      vertical-align: middle;
+      margin: auto;
+      text-align: center;
+      color: gold;
+      font-size: 31px;
+    }
+    }
+  &.square {
+    height: 45px;
+    width: 250px;
+    border-radius: 20px;
+    p{
+      vertical-align: middle;
+      margin: auto;
+      text-align: center;
+      font-size: 16px;
+      line-height: 15px;
+      text-transform: uppercase;
+      border-radius: 20px;
+      font-family: Helvetica-light;
+      padding: 15px;
+    }
+      &.white {
+      background-color: white;
+      p{color: #BCBFC7;}
+      }
+      &.gold {
+      background-color: gold; 
+      
+      }
+      &.goldlight {
+        background-color: #F0D77C
+      }
+      &.golddark {
+        background-color: darkgoldenrod;
+      }
+      &.grey {
+        background-color:  #4C4F53;
+        border: 3px solid gold;
+        p{color: gold}
+      }
+      &.silver{
+        background-color: #8C8155;
+        border: 3px solid gold;
+        p{color: gold}
+      }
+    i{
+      color: #4C4F53;
+      font-weight: 900;
+      margin: auto 100px;
+      font-size: 25px;
+      line-height: 15px;
+      text-transform: uppercase;
+      border-radius: 20px;
+      padding: 15px;
+      &.goldcheck {
+        color: gold;
+      }
+    }
+  }
+
+
+
+  
+
 }
-//hover border, row 4
-.c-border{
-  background-color: goldenrod;
-  height: 75px;
-  width: 436px;
-  border-radius: 40px;
-  font-family: helvetica;
-  font-size: 20px;
-  color: unset;
-  text-align: center;
-  padding-top: 2px;
-  display: inline-block;
-  margin: 0;
-}
+
