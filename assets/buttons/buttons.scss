@@ -2,7 +2,6 @@
 
 .button{
 
-  // background-color: blue;
 
   height:40px;
   width:80px;
@@ -15,21 +14,21 @@
   	height: 37.5px;
   	width:37.5px;
   	border-radius:50%;
-	border: 4px solid $gold;
-	  
-	 
+	border: 4px solid $primary;
+
+
 	  &.disabled{
 	  	border: 3px solid $secondary;
-      opacity: 0.5; 
+      opacity: 0.5;
 	  	p {
 	  		opacity: 50%;
 	  	}
 	  }
 	  &.filled{
-		  background-color: $gold;
+		  background-color: $primary;
 		  p{
-			color: $grey;
-		  } 
+			color: $text;
+		  }
 	  }
 	  p{
     	vertical-align: middle;
@@ -47,19 +46,19 @@
     width: 300px;
     border-radius: 50px;
     border: 3px solid $secondary;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 
     p {
       vertical-align: middle;
       margin: auto;
       text-align: center;
       line-height: 45px;
-      color: $grey;
+      color: $text;
       font-size: 14px;
     }
 
     i{
-      color: $grey;
+      color: $text;
       font-weight: 900;
       margin: auto 125px;
       vertical-align: middle;
@@ -74,8 +73,8 @@
     }
 
     &.inactive {
-      background-color: $white;
-      border: 3px solid $white;
+      background-color: $button-p;
+      border: 3px solid $button-p;
       margin-top: 20px;
         p {
           color: lightgrey;
@@ -89,8 +88,8 @@
     }
 
     &.hover {
-      background-color: $gold2;
-      border: 3px solid $gold2;
+      background-color: $buttonBackground;
+      border: 3px solid $buttonBackground;
         p {
           color: #717271;
         }
@@ -130,12 +129,12 @@
 			padding: 15px;
 		}
 			&.white {
-			background-color: $white;
+			background-color: $button-p;
 			p{color: #BCBFC7;}
 			}
 			&.gold {
-			background-color: $gold;	
-			
+			background-color: $primary;
+
 			}
 			&.goldlight {
 				background-color: #F0D77C
@@ -144,17 +143,17 @@
 				background-color: darkgoldenrod;
 			}
 			&.grey {
-				background-color: $grey;
-				border: 3px solid $gold;
-				p{color: $gold}
+				background-color: $text;
+				border: 3px solid $primary;
+				p{color: $primary}
 			}
 			&.silver{
 				background-color: #8C8155;
-				border: 3px solid $gold;
-				p{color: $gold}
+				border: 3px solid $primary;
+				p{color: $primary}
 			}
 		i{
-			color: $grey;
+			color: $text;
 			font-weight: 900;
 			margin: auto 100px;
 			font-size: 25px;
@@ -163,14 +162,13 @@
 			border-radius: 20px;
 			padding: 15px;
 			&.goldcheck {
-				color: $gold;
+				color: $primary;
 			}
 		}
 	}
 
 
 
-  
+
 
 }
-

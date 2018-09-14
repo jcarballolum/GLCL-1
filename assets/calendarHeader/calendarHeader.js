@@ -5,16 +5,21 @@ let calendarHeader = () => {
   };
   monthSetter('SEPTEMBER');
   let monthArr = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMEBER', 'DECEMBER'];
-  let leftArrow = document.getElementById('left-arrow')
+  console.log(monthArr[0]);
+  let leftArrow = document.getElementById('left-arrow');
   let rightArrow = document.getElementById('right-arrow');
-  let monthIndex = 9;
+  let monthIndex = 8;
   leftArrow.addEventListener('click', ()=>{
-    monthIndex--;
-    monthSetter(monthArr[monthIndex-1]);
+    if(monthIndex > 0){
+      monthIndex--;
+      monthSetter(monthArr[monthIndex]);
+    }
   });
   rightArrow.addEventListener('click', ()=>{
+    if(monthIndex < monthArr.length-1){
     monthIndex++;
-    monthSetter(monthArr[monthIndex-1]);
+    monthSetter(monthArr[monthIndex]);
+    }
   });
 };
 

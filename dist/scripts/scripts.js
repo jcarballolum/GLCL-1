@@ -22,44 +22,18 @@ var fn = function fn() {
 document.addEventListener('DOMContentLoaded', fn, false);
 'use strict';
 
-var calendarHeader = function calendarHeader() {
-  var month = document.getElementById('month');
-  var monthSetter = function monthSetter(newMonth) {
-    month.innerHTML = newMonth;
-  };
-  monthSetter('SEPTEMBER');
-  var monthArr = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMEBER', 'DECEMBER'];
-  var leftArrow = document.getElementById('left-arrow');
-  var rightArrow = document.getElementById('right-arrow');
-  var monthIndex = 9;
-  leftArrow.addEventListener('click', function () {
-    monthIndex--;
-    monthSetter(monthArr[monthIndex - 1]);
-  });
-  rightArrow.addEventListener('click', function () {
-    monthIndex++;
-    monthSetter(monthArr[monthIndex - 1]);
-  });
-};
-
-document.addEventListener('DOMContentLoaded', calendarHeader, false);
-'use strict';
-
-var list = [];
-var myFunkyFunk = function myFunkyFunk() {
-  console.log('the funk');
-};
-'use strict';
-
 var calendar = function calendar() {
-  var lastDay = function lastDay(year, month) {
-    return new Date(year, month, 0).getDate();
-  };
+
   var firstDay = function firstDay(year, month) {
     return new Date(year, month - 1, 1).getDay();
   };
 
+  var lastDay = function lastDay(year, month) {
+    return new Date(year, month, 0).getDate();
+  };
+
   var daysOfTheWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
   var calendarHead = document.getElementById('calendar-head');
   var populateCalendarHead = function populateCalendarHead() {
     for (var i = 0; i < daysOfTheWeek.length; i++) {
@@ -74,15 +48,20 @@ var calendar = function calendar() {
   var populateCalendarBody = function populateCalendarBody() {
     var daysInRow = 7;
     var totalRows = 5;
-    // var totalDays = daysInRow * totalRows; 
+    // var totalDays = daysInRow * totalRows;
     var currentRows = 0;
+    var currentDaysInMonth = lastDay(2018, 9);
+    var currentDayIndex = 1;
 
     while (currentRows < totalRows) {
       var calendarRow = document.createElement('div');
       for (var i = 0; i < daysInRow; i++) {
         console.log('within for loop');
         var day = document.createElement('p');
-        day.innerHTML = i;
+        if (currentDayIndex <= currentDaysInMonth) {
+          day.innerHTML = currentDayIndex;
+          currentDayIndex++;
+        }
         calendarRow.appendChild(day);
       }
       calendarBody.appendChild(calendarRow).className = "calendar-row";
@@ -146,3 +125,37 @@ document.addEventListener('DOMContentLoaded', calendar, false);
 // };
 
 // document.addEventListener('DOMContentLoaded', calendar, false);
+'use strict';
+
+var calendarHeader = function calendarHeader() {
+  var month = document.getElementById('month');
+  var monthSetter = function monthSetter(newMonth) {
+    month.innerHTML = newMonth;
+  };
+  monthSetter('SEPTEMBER');
+  var monthArr = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMEBER', 'DECEMBER'];
+  console.log(monthArr[0]);
+  var leftArrow = document.getElementById('left-arrow');
+  var rightArrow = document.getElementById('right-arrow');
+  var monthIndex = 8;
+  leftArrow.addEventListener('click', function () {
+    if (monthIndex > 0) {
+      monthIndex--;
+      monthSetter(monthArr[monthIndex]);
+    }
+  });
+  rightArrow.addEventListener('click', function () {
+    if (monthIndex < monthArr.length - 1) {
+      monthIndex++;
+      monthSetter(monthArr[monthIndex]);
+    }
+  });
+};
+
+document.addEventListener('DOMContentLoaded', calendarHeader, false);
+'use strict';
+
+var list = [];
+var myFunkyFunk = function myFunkyFunk() {
+  console.log('the funk');
+};

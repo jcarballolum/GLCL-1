@@ -191,6 +191,17 @@
 .button.square i.goldcheck {
   color: gold;
 }
+#calendar-head,
+.calendar-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+#calendar-head p,
+.calendar-row p {
+  width: 100%;
+  text-align: center;
+}
 * {
   font-family: 'Nunito', sans-serif;
 }
@@ -212,9 +223,4 @@
 
 li {
   text-decoration: none;
-}
-#calendar-head,
-.calendar-row {
-  display: flex;
-  justify-content: space-around;
 }
