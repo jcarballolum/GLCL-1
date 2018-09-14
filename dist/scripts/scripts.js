@@ -22,6 +22,35 @@ var fn = function fn() {
 document.addEventListener('DOMContentLoaded', fn, false);
 'use strict';
 
+var calendarHeader = function calendarHeader() {
+  var month = document.getElementById('month');
+  var monthSetter = function monthSetter(newMonth) {
+    month.innerHTML = newMonth;
+  };
+  monthSetter('SEPTEMBER');
+  var monthArr = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMEBER', 'DECEMBER'];
+  var leftArrow = document.getElementById('left-arrow');
+  var rightArrow = document.getElementById('right-arrow');
+  var monthIndex = 9;
+  leftArrow.addEventListener('click', function () {
+    monthIndex--;
+    monthSetter(monthArr[monthIndex - 1]);
+  });
+  rightArrow.addEventListener('click', function () {
+    monthIndex++;
+    monthSetter(monthArr[monthIndex - 1]);
+  });
+};
+
+document.addEventListener('DOMContentLoaded', calendarHeader, false);
+'use strict';
+
+var list = [];
+var myFunkyFunk = function myFunkyFunk() {
+  console.log('the funk');
+};
+'use strict';
+
 var calendar = function calendar() {
   var lastDay = function lastDay(year, month) {
     return new Date(year, month, 0).getDate();
@@ -117,9 +146,3 @@ document.addEventListener('DOMContentLoaded', calendar, false);
 // };
 
 // document.addEventListener('DOMContentLoaded', calendar, false);
-'use strict';
-
-var list = [];
-var myFunkyFunk = function myFunkyFunk() {
-  console.log('the funk');
-};
