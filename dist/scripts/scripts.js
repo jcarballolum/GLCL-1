@@ -127,6 +127,12 @@ document.addEventListener('DOMContentLoaded', calendar, false);
 // document.addEventListener('DOMContentLoaded', calendar, false);
 'use strict';
 
+var list = [];
+var myFunkyFunk = function myFunkyFunk() {
+  console.log('the funk');
+};
+'use strict';
+
 var calendarHeader = function calendarHeader() {
   var month = document.getElementById('month');
   var monthSetter = function monthSetter(newMonth) {
@@ -153,9 +159,3 @@ var calendarHeader = function calendarHeader() {
 };
 
 document.addEventListener('DOMContentLoaded', calendarHeader, false);
-'use strict';
-
-var list = [];
-var myFunkyFunk = function myFunkyFunk() {
-  console.log('the funk');
-};
