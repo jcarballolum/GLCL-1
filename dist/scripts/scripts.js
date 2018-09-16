@@ -1,27 +1,5 @@
 'use strict';
 
-var fn = function fn() {
-	// adding p tag for minus
-	var minus = document.getElementsByClassName('minus');
-
-	for (var i = 0; i < minus.length; i++) {
-		var e = document.createElement('p');
-		e.innerHTML = '-';
-		minus[i].appendChild(e);
-	}
-
-	//adding p tag for plus
-	var plus = document.getElementsByClassName('plus');
-	for (var i = 0; i < plus.length; i++) {
-		var e = document.createElement('p');
-		e.innerHTML = '+';
-		plus[i].appendChild(e);
-	}
-};
-
-document.addEventListener('DOMContentLoaded', fn, false);
-'use strict';
-
 var calendar = function calendar() {
 
   var firstDay = function firstDay(year, month) {
@@ -127,6 +105,28 @@ document.addEventListener('DOMContentLoaded', calendar, false);
 // document.addEventListener('DOMContentLoaded', calendar, false);
 'use strict';
 
+var fn = function fn() {
+	// adding p tag for minus
+	var minus = document.getElementsByClassName('minus');
+
+	for (var i = 0; i < minus.length; i++) {
+		var e = document.createElement('p');
+		e.innerHTML = '-';
+		minus[i].appendChild(e);
+	}
+
+	//adding p tag for plus
+	var plus = document.getElementsByClassName('plus');
+	for (var i = 0; i < plus.length; i++) {
+		var e = document.createElement('p');
+		e.innerHTML = '+';
+		plus[i].appendChild(e);
+	}
+};
+
+document.addEventListener('DOMContentLoaded', fn, false);
+'use strict';
+
 var list = [];
 var myFunkyFunk = function myFunkyFunk() {
   console.log('the funk');
@@ -134,26 +134,44 @@ var myFunkyFunk = function myFunkyFunk() {
 'use strict';
 
 var calendarHeader = function calendarHeader() {
-  var month = document.getElementById('month');
-  var monthSetter = function monthSetter(newMonth) {
-    month.innerHTML = newMonth;
+  var title = document.getElementById('title');
+  var titleSetter = function titleSetter(newTitle) {
+    title.innerHTML = newTitle;
   };
-  monthSetter('SEPTEMBER');
-  var monthArr = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMEBER', 'DECEMBER'];
-  console.log(monthArr[0]);
-  var leftArrow = document.getElementById('left-arrow');
+  titleSetter('SEPTEMBER');
+  var titleArr = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMEBER', 'DECEMBER'];
+  console.log(titleArr[0]);
+
+  var titleCarousel = document.getElementById('title-carousel');
+  var left = document.createElement('p');
+  left.id = "leftArrow";
+  left.classList.add("arrow fas fa-chevron-left", "calendar-header", "title-carousel");
+  titleCarousel.appendChild(left);
+
+  var right = document.createElement('p');
+  right.id = "rightArrow";
+  right.classList.add("arrow fas fa-chevron-right", "calendar-header", "title-carousel");
+  titleCarousel.appendChild(right);
+
+  var month = document.createElement('p');
+  month.id = "title";
+  month.classList.add("calendar-header", "title-carousel");
+  titleCarousel.appendChild(month);
+
+  var leftArrow = document.getElementById("left-arrow");
   var rightArrow = document.getElementById('right-arrow');
-  var monthIndex = 8;
+  var titleIndex = 8;
   leftArrow.addEventListener('click', function () {
-    if (monthIndex > 0) {
-      monthIndex--;
-      monthSetter(monthArr[monthIndex]);
+    if (titleIndex > 0) {
+      titleIndex--;
+      titleSetter(titleArr[titleIndex]);
     }
   });
-  rightArrow.addEventListener('click', function () {
-    if (monthIndex < monthArr.length - 1) {
-      monthIndex++;
-      monthSetter(monthArr[monthIndex]);
+
+  righttArrow.addEventListener('click', function () {
+    if (titleIndex < titleArr.length - 1) {
+      titleIndex++;
+      titleSetter(titleArr[titleIndex]);
     }
   });
 };
