@@ -1,11 +1,11 @@
 
 @import '../main';
 
-.calendar-header{
+.title-carousel{
   display: flex;
-  width: 250px;background-color: lightgray;
+  width: 250px;background-color: $border-title;
   justify-content: space-around;
-  color: white;
+  color: $button-p;
 }
 
 .arrow{

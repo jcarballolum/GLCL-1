@@ -25,5 +25,8 @@
     "gulp-concat-css": "latest",
     "gulp-clean-css": "latest",
     "gulp-babel": "latest"
+  },
+  "dependencies": {
+    "@ionic/app-scripts": "^3.2.0"
   }
 }
