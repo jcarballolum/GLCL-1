@@ -1,13 +1,8 @@
 let dashboard = () => {
-  /*let daysOfTheWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-  var calendarHead = document.getElementById('calendar-head');
-
-  for(let i = 0; i<daysOfTheWeek.length; i++) {
-    let day = document.createElement('p');
-    day.innerHTML = daysOfTheWeek[i];
-    calendarHead.appendChild(day);
-  }*/
-
+let calendarContainer = document.getElementById('body');
+calendarContainer.addEventListener('arrowClick', function(event){
+console.log('arrow clicked!', event);
+});
 };
 
 document.addEventListener('DOMContentLoaded', dashboard, false);

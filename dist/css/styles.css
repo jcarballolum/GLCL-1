@@ -1,21 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 @import url("https://fonts.googleapis.com/css?family=Nunito");
-* {
-  font-family: 'Nunito', sans-serif;
-}
-
-.title-carousel {
-  display: flex;
-  width: 250px;
-  background-color: lightgray;
-  justify-content: space-around;
-  color: white;
-}
-
-.arrow {
-  cursor: pointer;
-}
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 * {
   font-family: 'Nunito', sans-serif;
 }
@@ -210,9 +196,6 @@
   font-family: 'Nunito', sans-serif;
 }
 
-li {
-  text-decoration: none;
-}
 #calendar-head,
 .calendar-row {
   display: flex;
@@ -223,4 +206,32 @@ li {
 .calendar-row p {
   width: 100%;
   text-align: center;
+}
+
+#calendar-head .grayedOut,
+.calendar-row .grayedOut {
+  color: lightgray;
+}
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+.title-carousel {
+  display: flex;
+  width: 250px;
+  background-color: lightgray;
+  justify-content: space-around;
+  color: white;
+}
+
+.arrow {
+  cursor: pointer;
+  padding: 0 40;
+}
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+li {
+  text-decoration: none;
 }

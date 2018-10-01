@@ -1,49 +1,5 @@
 'use strict';
 
-var titleCarouselWrapper = function titleCarouselWrapper() {
-  var titleCarousel = document.getElementById('title-carousel');
-
-  var la = document.createElement('p');
-  la.classList.add('arrow', 'fas', 'fa-chevron-left');
-  la.id = "left-arrow";
-  titleCarousel.appendChild(la);
-
-  var name = document.createElement('p');
-  name.classList.add('title');
-  name.id = "title";
-  titleCarousel.appendChild(name);
-
-  var ra = document.createElement('p');
-  ra.classList.add('arrow', 'fas', 'fa-chevron-right');
-  ra.id = "right-arrow";
-  titleCarousel.appendChild(ra);
-
-  var title = document.getElementById('title');
-  var titleSetter = function titleSetter(newTitle) {
-    title.innerHTML = newTitle;
-  };
-  titleSetter('SEPTEMBER');
-  var monthArr = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
-
-  var leftArrow = document.getElementById('left-arrow');
-  var rightArrow = document.getElementById('right-arrow');
-  var monthIndex = 8;
-  leftArrow.addEventListener('click', function () {
-    if (monthIndex > 0) {
-      monthIndex--;
-      titleSetter(monthArr[monthIndex]);
-    }
-  });
-  rightArrow.addEventListener('click', function () {
-    if (monthIndex < monthArr.length - 1) {
-      monthIndex++;
-      titleSetter(monthArr[monthIndex]);
-    }
-  });
-};
-document.addEventListener('DOMContentLoaded', titleCarouselWrapper, false);
-'use strict';
-
 var fn = function fn() {
 	// adding p tag for minus
 	var minus = document.getElementsByClassName('minus');
@@ -66,12 +22,6 @@ var fn = function fn() {
 document.addEventListener('DOMContentLoaded', fn, false);
 'use strict';
 
-var list = [];
-var myFunkyFunk = function myFunkyFunk() {
-  console.log('the funk');
-};
-'use strict';
-
 var calendar = function calendar() {
 
   var firstDay = function firstDay(year, month) {
@@ -80,6 +30,46 @@ var calendar = function calendar() {
 
   var lastDay = function lastDay(year, month) {
     return new Date(year, month, 0).getDate();
+  };
+
+  //TODO: Create currentTime, currentDay, currentMonth, currentYear variables based on this stack overflow answer
+  //https://stackoverflow.com/a/6002265/5885911
+  // Return today's date and time
+  var currentTime = new Date();
+
+  // returns the month (from 0 to 11)
+  var currentMonth = currentTime.getMonth() + 1;
+
+  // returns the day of the month (from 1 to 31)
+  var currentDay = currentTime.getDate();
+
+  // returns the year (four digits)
+  var currentYear = currentTime.getFullYear();
+
+  //Use const rather than let or var, we use const when a variable doesn't get reassigned or updated overtime.
+  //Since these are functions, we don't expect the functions to change so we can make them constants.
+
+
+  //TODO: Create the lastMonth function which takes the arguments, "year", "month", "dayOfWeek"
+  var lastMonth = function lastMonth(year, month, dayOfWeek) {
+    var previousMonth = month - 1;
+    var daysInPreviousMonth = function daysInPreviousMonth(y, p) {
+      var previousMonthArr = [];
+      var ld = lastDay(y, p);
+      var i = 0;
+      while (i < daysOfTheWeek.length) {
+        previousMonthArr.push(ld);
+        ld--;
+        i++;
+      }
+      return previousMonthArr;
+    };
+    if (previousMonth < 1) {
+      previousMonth = 12;
+      return daysInPreviousMonth(year - 1, previousMonth);
+    } else {
+      return daysInPreviousMonth(year, previousMonth);
+    }
   };
 
   var daysOfTheWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -96,22 +86,37 @@ var calendar = function calendar() {
 
   var calendarBody = document.getElementById('calendar-body');
   var populateCalendarBody = function populateCalendarBody() {
-    var daysInRow = 7;
-    var totalRows = 5;
-    // var totalDays = daysInRow * totalRows;
-    var currentRows = 0;
     var currentDaysInMonth = lastDay(2018, 9);
-    var currentDayIndex = 1;
+    var firstDayOfMonth = firstDay(2018, 9);
+    //TODO: Create lastMonthArr const which is equal to the lastMonth function which
+    var lastMonthArr = lastMonth(currentYear, currentMonth, firstDayOfMonth);
+    var daysInRow = 7;
+    var totalRows = 6;
+    var currentRows = 0;
+    var currentDayOfMonthIndex = 1; //current day of current month (e.g. september)
+    var currentCalendarDayIndex = 0; //current index of days on calendar (i.e. daysInRow * totalRows)
+    var lastDaysIndex = 1;
+    //TODO: Create lmaIndex variable which is equal to the firstDayOfMonth-1
+    var lmaIndex = firstDayOfMonth - 1;
 
     while (currentRows < totalRows) {
       var calendarRow = document.createElement('div');
       for (var i = 0; i < daysInRow; i++) {
-        console.log('within for loop');
         var day = document.createElement('p');
-        if (currentDayIndex <= currentDaysInMonth) {
-          day.innerHTML = currentDayIndex;
-          currentDayIndex++;
+
+        if (currentCalendarDayIndex < firstDayOfMonth) {
+          day.innerHTML = lastMonthArr[lmaIndex];
+          day.classList.add('grayedOut');
+          lmaIndex--;
+        } else if (currentCalendarDayIndex >= firstDayOfMonth && currentDayOfMonthIndex <= currentDaysInMonth) {
+          day.innerHTML = currentDayOfMonthIndex;
+          currentDayOfMonthIndex++;
+        } else {
+          day.innerHTML = lastDaysIndex;
+          lastDaysIndex++;
         }
+
+        currentCalendarDayIndex++;
         calendarRow.appendChild(day);
       }
       calendarBody.appendChild(calendarRow).className = "calendar-row";
@@ -122,56 +127,56 @@ var calendar = function calendar() {
 };
 
 document.addEventListener('DOMContentLoaded', calendar, false);
-// let calendar = () => {
-// 	let lastDay = () => {
-// 		return new Date(year, month, 0).getDate();
-// 	}
+'use strict';
 
-// 	let firstDay = (year, month) => {
-// 		return new Date(year, month, -1, 1).getDay();
-// 	}
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+var titleCarouselWrapper = function titleCarouselWrapper() {
+  var titleCarousel = document.getElementById('title-carousel');
 
-// 	let daysOfTheWeek=['SUN', 'MON', 'TUES', 'WEDS', 'THU', 'FRI', 'SAT'];
-// 	var calendarHead = document.getElementById('calendar-head');
+  var elementBuilder = function elementBuilder(elementType, elementId, appendTo, classes) {
+    var el = document.createElement(elementType);
+    if (classes) {
+      var _el$classList;
 
-// 	let populateCalendarHead() => {
+      (_el$classList = el.classList).add.apply(_el$classList, _toConsumableArray(classes));
+    }
+    el.id = elementId;
+    appendTo.appendChild(el);
+  };
 
-// 		for (let i = 0; i<daysOfTheWeek.length; i++){
-// 		let day = document.createElement('p');
-// 		day.innerHTML = daysOfTheWeek[i];
-// 		calendarHead.appendChild(day);
-// 		}
+  elementBuilder('p', 'left-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-left']);
+  elementBuilder('p', 'title', titleCarousel);
+  elementBuilder('p', 'right-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-right']);
 
-// 	}
+  var title = document.getElementById('title');
+  var titleSetter = function titleSetter(newTitle) {
+    title.innerHTML = newTitle;
+  };
+  titleSetter('September');
+  var monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-// 	populateCalendarHead();
+  var leftArrow = document.getElementById('left-arrow');
+  var rightArrow = document.getElementById('right-arrow');
+  var monthIndex = 8;
+  leftArrow.addEventListener('click', function () {
+    if (monthIndex > 0) {
+      monthIndex--;
+      monthSetter(monthArr[monthIndex]);
+    }
+  });
+  rightArrow.addEventListener('click', function () {
+    if (monthIndex < monthArr.length - 1) {
+      monthIndex++;
+      monthSetter(monthArr[monthIndex]);
+    }
+  });
+};
 
-// 	let calendarBody = document.getElementById('calendar-body');
-// 	let populateCalendarBody = () => {
-// 		var daysInRow = 7;
-// 		var totalRows = 5;
-// 		// var totalDays = daysInRow * totalRows;
-// 		var currentRows = 0;
+document.addEventListener('DOMContentLoaded', titleCarouselWrapper, false);
+'use strict';
 
-// 		while (currentRows < totalRows){
-// 			let calendarRow = document.createElement('div');
-// 			for (let i =0; i<daysInRow; i++){
-// 				console.log('within for loop');
-// 				let day = document.createElement('p');
-// 				day.innerHTML = i;
-// 				calendarRow.appendChild(day);
-// 			}
-
-// 			calendarBody
-// 			.appendChild(calendarRow)
-// 			.className = "calendar-row";
-
-// 			currentRows++;
-// 		}
-// 	}
-// 	populateCalendarBody();
-
-// };
-
-// document.addEventListener('DOMContentLoaded', calendar, false);
+var list = [];
+var myFunkyFunk = function myFunkyFunk() {
+  console.log('the funk');
+};
