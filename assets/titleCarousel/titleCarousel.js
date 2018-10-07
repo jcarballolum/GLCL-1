@@ -3,16 +3,16 @@ let titleCarouselWrapper = () => {
 
   const elementBuilder = (elementType, elementId, appendTo, classes) => {
     const el = document.createElement(elementType);
-    if(classes){
+    if (classes) {
       el.classList.add(...classes);
     }
     el.id = elementId;
     appendTo.appendChild(el);
   }
 
-  elementBuilder('p', 'left-arrow', titleCarousel, ['arrow','fas','fa-chevron-left']);
+  elementBuilder('p', 'left-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-left']);
   elementBuilder('p', 'title', titleCarousel);
-  elementBuilder('p', 'right-arrow', titleCarousel, ['arrow','fas','fa-chevron-right']);
+  elementBuilder('p', 'right-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-right']);
 
   let title = document.getElementById('title');
   let titleSetter = (newTitle) => {
@@ -26,14 +26,26 @@ let titleCarouselWrapper = () => {
 
   titleSetter(titleArr[titleIndex]);
 
-  leftArrow.addEventListener('click', ()=>{
-    if(titleIndex > 0){
+  const arrowClick = (direction) => {
+    new CustomEvent('arrowClick', {
+      bubbles: true,
+      detail: {
+        arrowDirection: direction
+      }
+    });
+  }
+
+  leftArrow.addEventListener('click', () => {
+    if (titleIndex > 0) {
       titleIndex--;
       titleSetter(titleArr[titleIndex]);
     }
+    leftArrow.dispatchEvent(arrowClick('left'));
   });
-  rightArrow.addEventListener('click', ()=>{
-    if(titleIndex < titleArr.length-1){
+
+
+  rightArrow.addEventListener('click', () => {
+    if (titleIndex < titleArr.length - 1) {
       titleIndex++;
       titleSetter(titleArr[titleIndex]);
     }
