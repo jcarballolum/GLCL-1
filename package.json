@@ -25,5 +25,8 @@
     "gulp-concat-css": "latest",
     "gulp-clean-css": "latest",
     "gulp-babel": "latest"
+  },
+  "dependencies": {
+    "json-server": "^0.14.0"
   }
 }
