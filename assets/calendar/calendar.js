@@ -104,11 +104,17 @@ let calendar = () => {
     const changeDirection = event.detail.changeDirection;
     if(changeDirection === 'left'){
       currentMonthIndex=currentMonthIndex-1;
+    } else (changeDirection === 0){
+      currentMonthIndex=currentYearIndex-1 && 'December';
+    }
       //TODO: if month is 0, decrement the year and set the month to december
       populateCalendarBody(currentYearIndex, currentMonthIndex);
-    }else if(changeDirection === 'right'){
+    } else (changeDirection === 'right'){
       currentMonthIndex=currentMonthIndex+1;
       //TODO: if month is 13, increment the year and set the month to january
+    } else (currentMonthIndex === 13){
+        currentMonthIndex=currentYearIndex+1 && 'January';
+      }
       populateCalendarBody(currentYearIndex, currentMonthIndex);
     }
   }, true);
