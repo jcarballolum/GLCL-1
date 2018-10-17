@@ -27,8 +27,3 @@
     "gulp-babel": "7.0.1"
   }
 }
-
-
-/* babel-core@6
-babel-preset-env@1.7.0
-babel-cli@6.26.0 */
