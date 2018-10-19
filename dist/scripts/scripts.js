@@ -138,12 +138,6 @@ var calendar = function calendar() {
 document.addEventListener('DOMContentLoaded', calendar, false);
 'use strict';
 
-var list = [];
-var myFunkyFunk = function myFunkyFunk() {
-  console.log('the funk');
-};
-'use strict';
-
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var titleCarouselWrapper = function titleCarouselWrapper() {
@@ -204,3 +198,9 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
 };
 
 document.addEventListener('DOMContentLoaded', titleCarouselWrapper, false);
+'use strict';
+
+var list = [];
+var myFunkyFunk = function myFunkyFunk() {
+  console.log('the funk');
+};

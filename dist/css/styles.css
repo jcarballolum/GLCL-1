@@ -216,13 +216,6 @@
   font-family: 'Nunito', sans-serif;
 }
 
-li {
-  text-decoration: none;
-}
-* {
-  font-family: 'Nunito', sans-serif;
-}
-
 .title-carousel {
   display: flex;
   width: 100%;
@@ -234,4 +227,11 @@ li {
 .arrow {
   cursor: pointer;
   padding: 0 40px;
+}
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+li {
+  text-decoration: none;
 }
