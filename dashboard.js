@@ -2,13 +2,13 @@ let dashboard = () => {
   const dashBody = document.getElementById('body');
   const calendar = document.getElementById('calendar');
     //TODO: MAKE IT DYNAMIC: get title carousel by id
-  const title carousel = document.getElementById('titleCarousel');
+  const title carousel = document.getElementById('title-carousel');
   //TODO: MAKE IT DYNAMIC: copy current time const from calendar.js
   const currentTime = new Date();
 //TODO: MAKE IT DYNAMIC: copy current month const from calendar.js
   const currentMonth = currentTime.getMonth() + 1;
   //TODO: MAKE IT DYNAMIC: create monthsInYear array and make it equal to an array of 12 strings which are the names of the 12 months of the year in order
-  var monthsInYear = ['January','February','March','April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  const monthsInYear = ['January','February','March','April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 //TODO: MAKE IT DYNAMIC: copy the entire monthChange const and paste it here
   const monthChange = (direction) => {
     return new CustomEvent('monthChange', {
@@ -35,13 +35,13 @@ let dashboard = () => {
     calendar.dispatchEvent(monthChange(event.detail.arrowDirection));
   }, true);
 
-  $.ajax({
-    method: "GET",
-    url: "http://localhost:3000/User",
-    dataType: "json"
-  }).then((response)=>{
-    console.log('response', response);
-  });
+  //$.ajax({
+  //  method: "GET",
+  //  url: "http://localhost:3000/User",
+  //  dataType: "json"
+  //}).then((response)=>{
+  //  console.log('response', response);
+  //});
 
 
 };
