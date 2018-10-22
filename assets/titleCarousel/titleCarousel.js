@@ -55,14 +55,17 @@ titleIndex = titleArr.length-1;
     rightArrow.dispatchEvent(arrowClick('right'));
   });
 }
-if(titleCarousel){
-titleCarousel.addEventListener('carouselInitialState', (event) =>{
-const loops = ();
-  const titleArr = event.detail.titleArr;
-  const titleIndex = event.detail.titleIndex;
-  carouselBuilder(titleArr, titleIndex);
-  carouselEvent(loops, titleIndex, titleArr);
-})
-}
+  if(titleCarousel){
+    titleCarousel.addEventListener('carouselInitialState', (event) => {
+      const loops = event.detail.loops;
+      const titleArr = event.detail.titleArr;
+      const titleIndex = event.detail.titleIndex;
+      carouselBuilder(titleArr, titleIndex);
+      carouselEvents(loops, titleIndex, titleArr);
+    })
+ }
+
+
 };
+
 document.addEventListener('DOMContentLoaded', titleCarouselWrapper, false);

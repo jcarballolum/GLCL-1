@@ -2,7 +2,7 @@ let dashboard = () => {
   const dashBody = document.getElementById('body');
   const calendar = document.getElementById('calendar');
     //TODO: MAKE IT DYNAMIC: get title carousel by id
-  const title carousel = document.getElementById('title-carousel');
+   const titleCarousel = document.getElementById('title-carousel');
   //TODO: MAKE IT DYNAMIC: copy current time const from calendar.js
   const currentTime = new Date();
 //TODO: MAKE IT DYNAMIC: copy current month const from calendar.js
@@ -34,15 +34,6 @@ let dashboard = () => {
   dashBody.addEventListener('arrowClick', function(event){
     calendar.dispatchEvent(monthChange(event.detail.arrowDirection));
   }, true);
-
-  //$.ajax({
-  //  method: "GET",
-  //  url: "http://localhost:3000/User",
-  //  dataType: "json"
-  //}).then((response)=>{
-  //  console.log('response', response);
-  //});
-
 
 };
 
